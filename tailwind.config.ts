@@ -11,6 +11,24 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        card: {
+          DEFAULT: "var(--card)",
+          foreground: "var(--card-foreground)",
+        },
+        muted: {
+          DEFAULT: "var(--muted)",
+          foreground: "var(--muted-foreground)",
+        },
+        border: "var(--border)",
+        brand: {
+          DEFAULT: "#E23744",
+          light: "#E85D67",
+          dark: "#B82934",
+        },
+      },
+      borderRadius: {
+        "2xl": "1rem",
+        "3xl": "1.5rem",
       },
     },
   },
