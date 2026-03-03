@@ -8,18 +8,18 @@ import { useRouter } from "next/navigation";
 
 const CATEGORIES = [
     { name: 'Pizza', image: '/assets/pizza.png', color: 'bg-orange-50' },
-    { name: 'Burger', image: '/assets/burger.png', color: 'bg-red-50' },
+    { name: 'Burger', image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=300', color: 'bg-red-50' },
     { name: 'Biryani', image: '/assets/biryani.png', color: 'bg-yellow-50' },
-    { name: 'Chinese', image: '/assets/chinese.png', color: 'bg-indigo-50' },
+    { name: 'Chinese', image: 'https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=300', color: 'bg-indigo-50' },
     { name: 'Desserts', image: '/assets/dessert.png', color: 'bg-pink-50' },
     { name: 'Thali', image: '/assets/biryani.png', color: 'bg-emerald-50' }, // Reusing biryani
 ];
 
 const COLLECTIONS = [
     { title: 'Trending this week', count: '12 places', image: '/assets/collection_trending_v2.png' },
-    { title: 'Best of New Delhi', count: '30 places', image: '/assets/collection_delhi_v2.png' },
-    { title: 'Pocket-friendly', count: '18 places', image: '/assets/collection_pocket_friendly.png' }, // Still unique
-    { title: 'Top breakfast spots', count: '10 places', image: '/assets/collection_trending.png' }, // Still unique
+    { title: 'Best of New Delhi', count: '30 places', image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=800' },
+    { title: 'Pocket-friendly', count: '18 places', image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?q=80&w=800' },
+    { title: 'Top breakfast spots', count: '10 places', image: '/assets/collection_trending.png' },
 ];
 
 export default function HomePage() {
@@ -170,7 +170,7 @@ export default function HomePage() {
                         { name: 'KFC', logo: '/assets/brand_kfc_og.png' },
                         { name: 'Burger King', logo: '/assets/brand_burgerking.png' },
                         { name: 'Domino\'s', logo: '/assets/brand_dominos.png' },
-                        { name: 'Subway', logo: '/assets/brand_subway.png' },
+                        { name: 'Subway', logo: 'https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?q=80&w=300' },
                         { name: 'Pizza Hut', logo: '/assets/brand_pizzahut.png' },
                     ].map((brand, i) => (
                         <Link href="/restaurant/rest-1" key={i} className="flex flex-col items-center gap-4 cursor-pointer group shrink-0">

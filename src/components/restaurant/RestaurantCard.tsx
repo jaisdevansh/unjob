@@ -20,6 +20,7 @@ export default function RestaurantCard({
     deliveryTime,
     costForTwo,
     tags,
+    imageUrl,
     offer
 }: RestaurantCardProps) {
     return (
@@ -27,7 +28,7 @@ export default function RestaurantCard({
             <div className="relative overflow-hidden rounded-2xl bg-card border border-border transition-all hover:shadow-xl hover:-translate-y-1 hover:border-brand/30">
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
                     <Image
-                        src="/assets/restaurant.png"
+                        src={imageUrl || "/assets/restaurant.png"}
                         alt={name}
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-700"

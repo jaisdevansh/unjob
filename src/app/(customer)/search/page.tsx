@@ -12,7 +12,7 @@ const MOCK_RESTAURANTS = [
         deliveryTime: '25',
         costForTwo: '₹600 for two',
         tags: ['North Indian', 'Punjabi', 'Thali'],
-        imageUrl: '',
+        imageUrl: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=800',
         offer: '50% OFF up to ₹100',
     },
     {
@@ -22,7 +22,7 @@ const MOCK_RESTAURANTS = [
         deliveryTime: '30',
         costForTwo: '₹350 for two',
         tags: ['Burgers', 'American', 'Fast Food'],
-        imageUrl: '',
+        imageUrl: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=800',
         offer: 'Flat ₹125 OFF',
     },
     {
@@ -32,7 +32,7 @@ const MOCK_RESTAURANTS = [
         deliveryTime: '40',
         costForTwo: '₹800 for two',
         tags: ['Chinese', 'Asian', 'Noodles'],
-        imageUrl: '',
+        imageUrl: 'https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=800',
     },
     {
         id: 'rest-4',
@@ -41,7 +41,7 @@ const MOCK_RESTAURANTS = [
         deliveryTime: '35',
         costForTwo: '₹500 for two',
         tags: ['Pizza', 'Italian', 'Fast Food'],
-        imageUrl: '',
+        imageUrl: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=800',
         offer: 'BOGO',
     },
     {
@@ -51,7 +51,7 @@ const MOCK_RESTAURANTS = [
         deliveryTime: '20',
         costForTwo: '₹300 for two',
         tags: ['Sweets', 'Snacks', 'North Indian'],
-        imageUrl: '',
+        imageUrl: 'https://images.unsplash.com/photo-1567184109411-4779ad047cda?q=80&w=800',
         offer: '20% OFF',
     },
     {
@@ -61,7 +61,7 @@ const MOCK_RESTAURANTS = [
         deliveryTime: '45',
         costForTwo: '₹700 for two',
         tags: ['Andhra', 'Biryani', 'South Indian'],
-        imageUrl: '',
+        imageUrl: 'https://images.unsplash.com/photo-1630383249896-424e482df921?q=80&w=800',
     },
     {
         id: 'rest-7',
@@ -70,7 +70,7 @@ const MOCK_RESTAURANTS = [
         deliveryTime: '15',
         costForTwo: '₹250 for two',
         tags: ['Desserts', 'Ice Cream', 'Beverages'],
-        imageUrl: '',
+        imageUrl: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=800',
         offer: 'Free Delivery',
     },
     {
@@ -80,7 +80,7 @@ const MOCK_RESTAURANTS = [
         deliveryTime: '35',
         costForTwo: '₹900 for two',
         tags: ['Cafe', 'Continental', 'Italian'],
-        imageUrl: '',
+        imageUrl: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=800',
     }
 ];
 

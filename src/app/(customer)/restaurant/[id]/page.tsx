@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect, use } from 'react';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Star, Clock, ShoppingBag, Plus } from 'lucide-react';
 import { useCartStore } from '@/store/cartStore';
 
@@ -13,6 +14,7 @@ const MOCK_RESTAURANTS = [
         costForTwo: '₹600 for two',
         tags: ['North Indian', 'Punjabi', 'Thali'],
         address: 'Connaught Place, New Delhi',
+        imageUrl: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=800',
         offer: '50% OFF up to ₹100',
     },
     {
@@ -23,6 +25,7 @@ const MOCK_RESTAURANTS = [
         costForTwo: '₹350 for two',
         tags: ['Burgers', 'American', 'Fast Food'],
         address: 'Rajiv Chowk, New Delhi',
+        imageUrl: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=800',
         offer: 'Flat ₹125 OFF',
     },
     {
@@ -33,6 +36,7 @@ const MOCK_RESTAURANTS = [
         costForTwo: '₹800 for two',
         tags: ['Chinese', 'Asian', 'Noodles'],
         address: 'Hauz Khas, New Delhi',
+        imageUrl: 'https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=800',
     },
     {
         id: 'rest-4',
@@ -42,6 +46,7 @@ const MOCK_RESTAURANTS = [
         costForTwo: '₹500 for two',
         tags: ['Pizza', 'Italian', 'Fast Food'],
         address: 'Saket, New Delhi',
+        imageUrl: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=800',
         offer: 'BOGO',
     },
     {
@@ -52,6 +57,7 @@ const MOCK_RESTAURANTS = [
         costForTwo: '₹300 for two',
         tags: ['Sweets', 'Snacks', 'North Indian'],
         address: 'Chandni Chowk, New Delhi',
+        imageUrl: 'https://images.unsplash.com/photo-1567184109411-4779ad047cda?q=80&w=800',
         offer: '20% OFF',
     },
     {
@@ -62,6 +68,7 @@ const MOCK_RESTAURANTS = [
         costForTwo: '₹700 for two',
         tags: ['Andhra', 'Biryani', 'South Indian'],
         address: 'Karol Bagh, New Delhi',
+        imageUrl: 'https://images.unsplash.com/photo-1630383249896-424e482df921?q=80&w=800',
     },
     {
         id: 'rest-7',
@@ -71,6 +78,7 @@ const MOCK_RESTAURANTS = [
         costForTwo: '₹250 for two',
         tags: ['Desserts', 'Ice Cream', 'Beverages'],
         address: 'Def Col, New Delhi',
+        imageUrl: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=800',
         offer: 'Free Delivery',
     },
     {
@@ -81,6 +89,7 @@ const MOCK_RESTAURANTS = [
         costForTwo: '₹900 for two',
         tags: ['Cafe', 'Continental', 'Italian'],
         address: 'Vasant Kunj, New Delhi',
+        imageUrl: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=800',
     }
 ];
 
@@ -88,21 +97,21 @@ const MENU = [
     {
         category: 'Recommended',
         items: [
-            { id: 'item-1', name: 'Signature Dish 1', price: 179, desc: 'Our signature dish crafted with perfection.', isVeg: false },
-            { id: 'item-2', name: 'Signature Dish 2', price: 149, desc: 'A delightful vegetarian option.', isVeg: true },
+            { id: 'item-1', name: 'Signature Dish 1', price: 179, desc: 'Our signature dish crafted with perfection.', isVeg: false, image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=300' },
+            { id: 'item-2', name: 'Signature Dish 2', price: 149, desc: 'A delightful vegetarian option.', isVeg: true, image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=300' },
         ]
     },
     {
         category: 'Sides & Beverages',
         items: [
-            { id: 'item-3', name: 'French Fries', price: 99, desc: 'Classic salted fries.', isVeg: true },
-            { id: 'item-4', name: 'Cold Beverage', price: 60, desc: 'Chilled refreshing drink.', isVeg: true },
+            { id: 'item-3', name: 'French Fries', price: 99, desc: 'Classic salted fries.', isVeg: true, image: 'https://images.unsplash.com/photo-1630384066242-4b2679261be4?q=80&w=300' },
+            { id: 'item-4', name: 'Cold Beverage', price: 60, desc: 'Chilled refreshing drink.', isVeg: true, image: 'https://images.unsplash.com/photo-1544145945-f904253d0c71?q=80&w=300' },
         ]
     }
 ];
 
-export default function RestaurantDetailPage({ params }: { params: Promise<{ id: string }> }) {
-    const { id } = use(params);
+export default function RestaurantDetailPage({ params }: { params: { id: string } }) {
+    const { id } = params;
     const [activeTab, setActiveTab] = useState('Menu');
     const addItem = useCartStore(state => state.addItem);
 
@@ -122,8 +131,15 @@ export default function RestaurantDetailPage({ params }: { params: Promise<{ id:
     return (
         <div className="pb-24">
             {/* Banner */}
-            <div className="h-48 md:h-72 bg-gray-200 w-full relative">
-                <div className="absolute inset-0 bg-black/20" />
+            <div className="h-48 md:h-72 bg-muted w-full relative overflow-hidden">
+                <Image
+                    src={restaurant.imageUrl || "https://images.unsplash.com/photo-1517248135467-4c7ed9d42c7b?q=80&w=1200"}
+                    alt={restaurant.name}
+                    fill
+                    className="object-cover brightness-[0.7]"
+                    priority
+                />
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-10 w-full pb-32">
@@ -209,8 +225,17 @@ export default function RestaurantDetailPage({ params }: { params: Promise<{ id:
                                                     <p className="text-sm text-muted-foreground mt-3 line-clamp-2 font-medium leading-relaxed">{item.desc}</p>
                                                 </div>
                                                 <div className="flex flex-col items-center justify-center shrink-0 w-32 md:w-36 relative h-fit pt-2">
-                                                    <div className="w-full aspect-square bg-muted rounded-2xl overflow-hidden flex items-center justify-center border border-border/50 shadow-inner">
-                                                        <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/40">Item Image</span>
+                                                    <div className="w-full aspect-square bg-muted rounded-2xl overflow-hidden flex items-center justify-center border border-border/50 shadow-inner relative">
+                                                        {item.image ? (
+                                                            <Image
+                                                                src={item.image}
+                                                                alt={item.name}
+                                                                fill
+                                                                className="object-cover"
+                                                            />
+                                                        ) : (
+                                                            <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/40">Item</span>
+                                                        )}
                                                     </div>
                                                     <button
                                                         onClick={() => handleAdd(item)}
